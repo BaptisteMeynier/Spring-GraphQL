@@ -9,9 +9,9 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @ToString
 @EqualsAndHashCode

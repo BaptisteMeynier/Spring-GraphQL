@@ -10,11 +10,10 @@ import javax.validation.constraints.Positive;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@ToString
 @EqualsAndHashCode
 public class Fish implements Serializable {
     @Id
