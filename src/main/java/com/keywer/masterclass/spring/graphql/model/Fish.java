@@ -14,10 +14,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode
 public class Fish implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fish_generator")
+    @SequenceGenerator(name="fish_generator", sequenceName = "fish_seq")
     private long id;
     @NotBlank
     private String name;
@@ -27,7 +27,7 @@ public class Fish implements Serializable {
     @DecimalMin("0.3")
     private float price;
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name="family_fk")
     private Family family;
 }

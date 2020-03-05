@@ -13,12 +13,11 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
-@EqualsAndHashCode
 public class Family implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "family_generator")
+    @SequenceGenerator(name="family_generator", sequenceName = "family_seq")
     private long id;
     @NotBlank
     private String name;

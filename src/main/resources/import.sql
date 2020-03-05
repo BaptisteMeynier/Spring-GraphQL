@@ -1,11 +1,11 @@
 
 --- FISH_FAMILY ---
 
-INSERT INTO FAMILY (id,name,water_type) VALUES (1,'Cichlidae',1);
-INSERT INTO FAMILY (id,name,water_type) VALUES (2,'Cyprinidae',1);
-INSERT INTO FAMILY (id,name,water_type) VALUES (3,'Characidae',1);
-INSERT INTO FAMILY (id,name,water_type) VALUES (4,'Pomacentridae',2);
-INSERT INTO FAMILY (id,name,water_type) VALUES (5,'Sphyrnidae',1);
+INSERT INTO FAMILY (id, name,water_type) VALUES (1,'Cichlidae',1);
+INSERT INTO FAMILY (id, name,water_type) VALUES (2,'Cyprinidae',1);
+INSERT INTO FAMILY (id, name,water_type) VALUES (3,'Characidae',1);
+INSERT INTO FAMILY (id, name,water_type) VALUES (4,'Pomacentridae',2);
+INSERT INTO FAMILY (id, name,water_type) VALUES (5,'Sphyrnidae',1);
 
 --- FISH ---
 
@@ -17,7 +17,7 @@ INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (5,'Brème com
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (6,'Spirlin',15,2,2);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (7,'Barbus raye',23,3.4,2);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (8,'Suceur de pierres ',21,1.90,2);
-INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (9,'carpe Koi',19,14.9,2);
+INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (9,'Carpe Koi',19,14.9,2);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (10,'Neon bleu',24,0.4,3);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (11,'Cardinalis',24,0.4,3);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (12,'Tetra argente',24,0.5,3);
@@ -30,3 +30,7 @@ INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (18,'Sergent m
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (19,'Demoiselle bicolore',19,18,4);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (20,'Requin marteau',18,30000,5);
 
+--- SEQUENCE ---
+
+ALTER SEQUENCE family_seq RESTART WITH 6 ;
+ALTER SEQUENCE fish_seq RESTART WITH 21 ;
