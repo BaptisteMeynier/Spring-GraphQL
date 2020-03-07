@@ -1,17 +1,13 @@
-package com.keywer.masterclass.spring.graphql.repository;
+package com.keywer.masterclass.spring.graphql;
 
-import com.keywer.masterclass.spring.graphql.ApplicationBootConfiguration;
 import com.keywer.masterclass.spring.graphql.model.Family;
-import com.keywer.masterclass.spring.graphql.model.Fish;
 import com.keywer.masterclass.spring.graphql.model.WaterType;
+import com.keywer.masterclass.spring.graphql.repository.FamilyRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

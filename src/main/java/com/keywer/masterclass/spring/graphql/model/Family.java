@@ -1,7 +1,10 @@
 package com.keywer.masterclass.spring.graphql.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -25,7 +28,7 @@ public class Family implements Serializable {
     @NotNull
     @Column(name = "WATER_TYPE")
     private WaterType waterType;
-    @OneToMany(mappedBy = "family")
     @JsonIgnore
+    @OneToMany(mappedBy = "family")
     private Collection<Fish> fishs;
 }

@@ -1,9 +1,10 @@
-package com.keywer.masterclass.spring.graphql.repository;
+package com.keywer.masterclass.spring.graphql;
 
-import com.keywer.masterclass.spring.graphql.ApplicationBootConfiguration;
 import com.keywer.masterclass.spring.graphql.model.Family;
 import com.keywer.masterclass.spring.graphql.model.Fish;
 import com.keywer.masterclass.spring.graphql.model.WaterType;
+import com.keywer.masterclass.spring.graphql.repository.FamilyRepository;
+import com.keywer.masterclass.spring.graphql.repository.FishRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
