@@ -17,13 +17,13 @@ public class Family implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "family_generator")
-    @SequenceGenerator(name="family_generator", sequenceName = "family_seq")
+    @SequenceGenerator(name = "family_generator", sequenceName = "family_seq")
     private long id;
     @NotBlank
     private String name;
     @NotNull
     @Column(name = "WATER_TYPE")
     private WaterType waterType;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "family")
+    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER, mappedBy = "family")
     private Collection<Fish> fishs;
 }

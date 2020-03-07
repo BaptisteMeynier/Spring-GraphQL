@@ -19,6 +19,9 @@ import static org.hamcrest.Matchers.is;
 class FishRepositoryTest {
 
     @Autowired
+    FamilyRepository familyRepository;
+
+    @Autowired
     FishRepository fishRepository;
 
     @Test
@@ -30,6 +33,10 @@ class FishRepositoryTest {
         Family rhincodontidaeFamily = Family.builder().name("Rhincodontidae").waterType(WaterType.SEA).build();
         Family characidaeFamily = Family.builder().name("Characidae").waterType(WaterType.FRESH).build();
 
+        familyRepository.save(cyprinidaeFamily);
+        familyRepository.save(rhincodontidaeFamily);
+        familyRepository.save(characidaeFamily);
+
         Fish cheaperFish = Fish.builder().name("Carassius auratus").price(0.3f).temperature(18).family(cyprinidaeFamily).build();
         Fish expensiveFish = Fish.builder().name("Rhincodon typus").price(expensivePrice).temperature(12).family(rhincodontidaeFamily).build();
         Fish accessibleFish = Fish.builder().name("Piranha").price(8f).temperature(24).family(characidaeFamily).build();
@@ -37,18 +44,6 @@ class FishRepositoryTest {
         fishRepository.save(cheaperFish);
         fishRepository.save(expensiveFish);
         fishRepository.save(accessibleFish);
-
-        //Then
-        Fish mostExpensiveFish = fishRepository.getMostExpensiveFish();
-
-        //When
-        assertThat(mostExpensiveFish.getPrice(), is(expensivePrice));
-    }
-
-    @Test
-    void it_should_return_fish_by_family() {
-        //Given
-        float expensivePrice = 60000f;
 
         //Then
         Fish mostExpensiveFish = fishRepository.getMostExpensiveFish();

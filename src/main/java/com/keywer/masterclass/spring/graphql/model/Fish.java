@@ -27,7 +27,7 @@ public class Fish implements Serializable {
     @DecimalMin("0.3")
     private float price;
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="family_fk")
     private Family family;
 }

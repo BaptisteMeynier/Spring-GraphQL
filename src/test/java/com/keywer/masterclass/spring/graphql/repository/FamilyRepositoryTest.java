@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -31,6 +32,8 @@ class FamilyRepositoryTest {
 
         Family family = Family.builder().name(familyName).waterType(WaterType.SEA).build();
 
+        familyRepository.save(family);
+
         Fish fish1 = Fish.builder().name("Spondyliosoma emarginatum").price(0.3f).temperature(18).family(family).build();
         Fish fish2 = Fish.builder().name("Pagrus major").price(0.4f).temperature(17).family(family).build();
 
@@ -38,6 +41,7 @@ class FamilyRepositoryTest {
         fishRepository.save(fish2);
 
         Family otherFamily = Family.builder().name("other family").waterType(WaterType.SEA).build();
+        familyRepository.save(otherFamily);
         Fish otherFish = Fish.builder().name("other fish").price(0.6f).temperature(20).family(otherFamily).build();
         fishRepository.save(otherFish);
 
