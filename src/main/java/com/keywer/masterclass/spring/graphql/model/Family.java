@@ -1,5 +1,6 @@
 package com.keywer.masterclass.spring.graphql.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Family implements Serializable {
     @NotNull
     @Column(name = "WATER_TYPE")
     private WaterType waterType;
-    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER, mappedBy = "family")
+    @OneToMany(mappedBy = "family")
+    @JsonIgnore
     private Collection<Fish> fishs;
 }

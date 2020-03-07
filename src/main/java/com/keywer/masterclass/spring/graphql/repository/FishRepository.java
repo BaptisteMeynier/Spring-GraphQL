@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface FishRepository extends PagingAndSortingRepository<Fish, Long> {
     @Query("from Fish f where f.price = (select max(f2.price) from Fish f2)")
     Fish getMostExpensiveFish();
+
+    Fish findByName(String name);
 }

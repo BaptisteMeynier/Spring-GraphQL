@@ -25,26 +25,20 @@ class FamilyRepositoryTest {
     FamilyRepository familyRepository;
 
     @Test
-    void it_should_return_fish_by_family() {
+    void it_should_return_family() {
         //Given
         String familyName = "Coryphaena";
-        Fish fish1 = Fish.builder().name("Spondyliosoma emarginatum").price(0.3f).temperature(18).build();
-        Fish fish2 = Fish.builder().name("Pagrus major").price(0.4f).temperature(17).build();
-        Family family = Family.builder().name(familyName).waterType(WaterType.SEA).fishs(Arrays.asList(fish1,fish2)).build();
-        fish1.setFamily(family);
-        fish2.setFamily(family);
+        Family family = Family.builder().name(familyName).waterType(WaterType.SEA).build();
         familyRepository.save(family);
 
-        Fish otherFish = Fish.builder().name("other fish").price(0.6f).temperature(20).build();
-        Family otherFamily = Family.builder().name("other family").waterType(WaterType.SEA).fishs(Collections.singletonList(otherFish)).build();
-        otherFish.setFamily(otherFamily);
+        Family otherFamily = Family.builder().name("other family").waterType(WaterType.SEA).build();
         familyRepository.save(otherFamily);
 
         //Then
         Family familyFind = familyRepository.findByName(familyName);
 
         //When
-        assertThat(familyFind.getFishs().size(), is(2));
+        assertThat(familyFind.getName(), is(familyName));
     }
 
 }
