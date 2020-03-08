@@ -19,7 +19,20 @@ type Fish {
 	family: Family
 }
 
+input PaginationInput {
+	first: Int
+	offset: Int
+}
+
+input CursorInput {
+	first: Int
+	after: Int
+}
+
 type Query {
 	mostExpensiveFish: Fish
+	fishByName(name: String): Fish
+	findFishWithPagination(pagination: PaginationInput): [Fish]
+	findFishWithCursor(pagination: CursorInput): [Fish]
 }
 
