@@ -36,3 +36,6 @@ type Query {
 	findFishWithCursor(pagination: CursorInput): [Fish]
 }
 
+type Mutation {
+	createFamily(name: String, waterType: WaterType): Family
+}

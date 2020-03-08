@@ -82,6 +82,14 @@ Query variables
 
 ## Java Client
 ## Mutation
+``` 
+mutation {
+  createFamily(name:"AFamily",waterType:SEA){
+    id,
+    name
+  }
+}
+```
 ## Exceptions
 ## Subscription
 
