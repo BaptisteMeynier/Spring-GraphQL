@@ -6,7 +6,7 @@ In this MasterClass we will see the basic component of GraphQL
 ## Query
 GraphiQL url => http://localhost:8080/graphiql
 
-Query:  
+### Query:  
 ```
 query{
   mostExpensiveFish {
@@ -20,7 +20,7 @@ query{
 }
 ```
 
-Query with parameter:  
+### Query with parameter:  
 ```
 query{
  fishByName(name:"Discus") {
@@ -30,7 +30,7 @@ query{
 }
 ```
 
-Query with pagination:
+### Query with pagination:
 ```
 query{
  findFishWithPagination(pagination: { first: 2,offset: 1}) {
@@ -40,7 +40,7 @@ query{
 }
 ```
 
-Query with cursor:
+### Query with cursor:
 ```
 query{
  findFishWithCursor(pagination: { first: 2,after: 3}) {
@@ -49,6 +49,36 @@ query{
  }
 }
 ```
+
+### Query with Fragment:
+```
+fragment entity on Fish {
+ id,
+ name
+}
+
+query{
+ findFishWithCursor(pagination: { first: 2,after: 3}) {
+  ...entity
+ }
+}
+```
+### Query with variables:
+```
+query Fish($name: String){
+ fishByName(name: $name) {
+  id,
+  name
+ }
+}
+Query variables
+{"name": "Discus"}
+```
+
+### We had forget to talk about:
+ - scalar => https://graphql.org/learn/schema/#scalar-types
+ - union => https://graphql.org/learn/schema/#union-types
+ - heritage => https://graphql.org/learn/schema/#interfaces
 
 ## Java Client
 ## Mutation
