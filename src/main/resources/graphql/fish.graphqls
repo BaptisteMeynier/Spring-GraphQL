@@ -6,34 +6,49 @@ enum WaterType {
 
 type Family {
 	id: ID!
+	# Name of the family
 	name: String
+	# Type of water
 	waterType: WaterType
+	# Fish inner the family
 	fishs: [Fish!]
 }
 
 type Fish {
 	id: ID!
+	"Fish name"
 	name: String
+	"Optimal temperature tolered by the fish"
 	temperature: Int
+	"Price of the fish"
 	price: Float
+	"Family of the fish"
 	family: Family
 }
 
 input PaginationInput {
+	# Number of element returned
 	first: Int
+	# Index where element will be returned
 	offset: Int
 }
 
 input CursorInput {
+	# Number of element returned
 	first: Int
+	# Id element where the search must begin
 	after: Int
 }
 
 type Query {
+	# The most Expensive Fish
 	mostExpensiveFish: Fish
+	# Fish by name
 	fishByName(name: String): Fish
-	findFishWithPagination(pagination: PaginationInput): [Fish]
-	findFishWithCursor(pagination: CursorInput): [Fish]
+	# Fish with pagination
+	fishWithPagination(pagination: PaginationInput): [Fish]
+	# Fish with cursor
+	fishWithCursor(cursor: CursorInput): [Fish]
 }
 
 type Mutation {

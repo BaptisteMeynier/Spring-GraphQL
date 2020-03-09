@@ -33,7 +33,7 @@ query{
 ### Query with pagination:
 ```
 query{
- findFishWithPagination(pagination: { first: 2,offset: 1}) {
+ fishWithPagination(pagination: { first: 2,offset: 1}) {
   id,
   name
  }
@@ -43,7 +43,7 @@ query{
 ### Query with cursor:
 ```
 query{
- findFishWithCursor(pagination: { first: 2,after: 3}) {
+ fishWithCursor(cursor: { first: 2,after: 3}) {
   id,
   name
  }
@@ -52,14 +52,15 @@ query{
 
 ### Query with Fragment:
 ```
-fragment entity on Fish {
+fragment standard on Fish {
  id,
  name
 }
 
 query{
- findFishWithCursor(pagination: { first: 2,after: 3}) {
-  ...entity
+ fishWithCursor(pagination: { first: 2,after: 3}) {
+  ...standard,
+  price
  }
 }
 ```

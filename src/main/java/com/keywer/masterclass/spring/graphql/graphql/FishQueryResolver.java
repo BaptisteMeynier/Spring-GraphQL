@@ -38,17 +38,15 @@ public class FishQueryResolver implements GraphQLQueryResolver {
         return fishByName;
     }
 
-    public List<Fish> findFishWithPagination(PaginationInput paginationInput) {
-        List<Fish> fish = Collections.EMPTY_LIST;
-        PageRequest pageRequest = PageRequest.of(1, paginationInput.getOffset(), Sort.by("id").ascending());
-        Optional<Fish> first = fishDatabaseService.findFish(pageRequest).stream().findFirst();
-        if(first.isPresent()) {
-            fish = fishDatabaseService.findFish(first.get().getId(), paginationInput.getFirst());
-        }
+    public List<Fish> fishWithPagination(PaginationInput paginationInput) {
+        Fish first = fishDatabaseService.findByOffset(paginationInput.getOffset());
+
+        List<Fish> fish = fishDatabaseService.findFish(first.getId(), paginationInput.getFirst());
+
         return fish;
     }
 
-    public List<Fish> findFishWithCursor(CursorInput cursorInput) {
+    public List<Fish> fishWithCursor(CursorInput cursorInput) {
         return fishDatabaseService.findFish(cursorInput.getAfter(), cursorInput.getFirst());
     }
 

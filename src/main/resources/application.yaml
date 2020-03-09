@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:testdb
+    username: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+    # if you want to @ExceptionHandler annotation for custom GraphQLErrors
+    exception-handlers-enabled: true
+    contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
+graphiql:
+  mapping: /graphiql
+  endpoint:
+    graphql: /graphql
+    subscriptions: /subscriptions
+  subscriptions:
+    timeout: 30
+    reconnect: false
+  static:
+    basePath: /
+  enabled: true
+  pageTitle: GraphiQL
+  cdn:
+    enabled: false
+    version: 0.13.0
+  props:
+    variables:
+      editorTheme: "solarized light"

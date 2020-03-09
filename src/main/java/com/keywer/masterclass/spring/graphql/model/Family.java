@@ -20,8 +20,7 @@ import java.util.Collection;
 public class Family implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "family_generator")
-    @SequenceGenerator(name = "family_generator", sequenceName = "family_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
     private String name;

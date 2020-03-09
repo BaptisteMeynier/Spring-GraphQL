@@ -29,8 +29,3 @@ INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (17,'Poisson c
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (18,'Sergent major',21,13,4);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (19,'Demoiselle bicolore',19,18,4);
 INSERT INTO FISH (id, name, temperature, price, family_fk) VALUES (20,'Requin marteau',18,30000,5);
-
---- SEQUENCE ---
-
-ALTER SEQUENCE family_seq RESTART WITH 6 ;
-ALTER SEQUENCE fish_seq RESTART WITH 21 ;

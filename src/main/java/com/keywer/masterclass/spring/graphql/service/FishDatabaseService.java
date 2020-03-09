@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FishDatabaseService {
@@ -45,6 +46,9 @@ public class FishDatabaseService {
         return familyRepository.findByName(name);
     }
 
+    public Fish findByOffset(int offset) {
+        return fishRepository.findByOffset(offset);
+    }
     public List<Fish> findFish(PageRequest pageRequest) {
         return fishRepository.findAll(pageRequest).toList();
     }

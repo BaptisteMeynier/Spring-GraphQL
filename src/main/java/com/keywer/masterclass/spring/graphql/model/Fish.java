@@ -19,8 +19,7 @@ import java.io.Serializable;
 @Builder
 public class Fish implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fish_generator")
-    @SequenceGenerator(name="fish_generator", sequenceName = "fish_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
     private String name;
