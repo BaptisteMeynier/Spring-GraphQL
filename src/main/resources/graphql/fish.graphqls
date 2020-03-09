@@ -54,3 +54,7 @@ type Query {
 type Mutation {
 	createFamily(name: String, waterType: WaterType): Family
 }
+
+type Subscription {
+	lastFamily: Family!
+}
