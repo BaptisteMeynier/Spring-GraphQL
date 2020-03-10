@@ -5,7 +5,9 @@ import com.keywer.masterclass.spring.graphql.model.Family;
 import com.keywer.masterclass.spring.graphql.service.FamilyPublisher;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FishSubscriptionResolver implements GraphQLSubscriptionResolver {
 
     private final FamilyPublisher familyPublisher;

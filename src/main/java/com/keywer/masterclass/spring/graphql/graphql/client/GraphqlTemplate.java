@@ -3,7 +3,6 @@ package com.keywer.masterclass.spring.graphql.graphql.client;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import jdk.internal.util.xml.impl.Input;
 
 import java.io.BufferedReader;
 import java.io.IOException;
